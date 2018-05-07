@@ -1,5 +1,7 @@
 package com.portal.springbootapp;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ public class RegisterationController {
 	}
 	
 	@PostMapping("/registerProcess")
-	public ModelAndView registerProcess(@ModelAttribute("user") User user, BindingResult result) {
+	public ModelAndView registerProcess(@ModelAttribute("user") @Valid User user, BindingResult result) {
 		if(!result.hasErrors())
 			userService.register(user);
 		return new ModelAndView("welcome", "firstName", user.getFirstname());

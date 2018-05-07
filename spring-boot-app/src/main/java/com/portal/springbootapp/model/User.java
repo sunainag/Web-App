@@ -1,20 +1,26 @@
 package com.portal.springbootapp.model;
 
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
 
-	 private String username;
-	  private String password;
-	  private String firstname;
-	  private String lastname;
-	  private String email;
-	  private String address;
-	  private int phone;
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	@NotNull
+	@NotEmpty
+	private String firstname;
+	
+	@NotNull
+	@NotEmpty
+	private String lastname;
+	
+	@NotNull
+	@NotEmpty
+	private String email;
+	
+	@NotNull
+	@NotEmpty
+	private String password;
+	private String confirmPassword;
 	public String getPassword() {
 		return password;
 	}
@@ -39,20 +45,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
-	  
-	 public String toString() {
-		 return this.getFirstname()+" "+this.getLastname();
-	 } 
+	
 }
